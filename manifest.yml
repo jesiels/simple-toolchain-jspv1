@@ -1,0 +1,7 @@
+applications:
+- buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  host: simple-toolchain-jspv11
+  name: simple-toolchain-jspv1
+  memory: 64M
+  stack: cflinuxfs2
+  
