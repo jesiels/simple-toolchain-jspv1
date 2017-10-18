@@ -1,0 +1,48 @@
+<html>
+<head>
+<!-- Google Analytics -->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104218014-1', 'auto');
+  ga('send', 'pageview');
+
+
+
+
+ga('send', 'event', 'Videos', 'Pause', 'Some Label');
+
+var identifiersMapper = [];
+identifiersMapper.push({"googleName":"googleIdenfierField1", "ubxName":"ubxIdentifierField1"});
+identifiersMapper.push({"googleName":"googleIdenfierField2", "ubxName":"ubxIdentifierField2"});
+ga(function() {
+    var tracker = ga.getByName("t0");
+    var originalSendHitTask = tracker.get("sendHitTask");
+    tracker.set("sendHitTask", function(model) {
+        originalSendHitTask(model);
+        var payLoad = model.get("hitPayload");
+        console.log("model=" + JSON.stringify(model));
+        google_ubx.sendEventFromPayload(payLoad,identifiersMapper);
+        });
+});
+
+
+</script>
+
+
+
+</head>
+<body>
+<p>
+test GA events
+
+<a href="#VideoStop" onClick="ga('send', 'event', 'Videos', 'Finished', 'Some Label');">Send Video Finished Event</a>
+
+</p>
+</body>
+</html>  

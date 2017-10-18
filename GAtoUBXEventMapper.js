@@ -72,16 +72,16 @@ googleToUBXVideoEvent.attributesMapper.push({"googleName":"el", "ubxName":"eleme
 googleToUBXVideoEvent.attributesMapper.push({"googleName":"cid", "ubxName":"interactionId","type":"string"});
 
 var googleToUBXVideoLaunchedEvent = JSON.parse(JSON.stringify(googleToUBXVideoEvent));
-googleToUBXVideoLaunchedEvent.ubxEventType = "ibmelementvideoLaunched";
+googleToUBXVideoLaunchedEvent.ubxEventType = "ibmelementVideoLaunched";
 
 var googleToUBXVideoPausedEvent = JSON.parse(JSON.stringify(googleToUBXVideoEvent));
-googleToUBXVideoPausedEvent.ubxEventType = "ibmelementvideoPaused";
+googleToUBXVideoPausedEvent.ubxEventType = "ibmelementVideoPaused";
 
 var googleToUBXVideoPlayedEvent = JSON.parse(JSON.stringify(googleToUBXVideoEvent));
-googleToUBXVideoPlayedEvent.ubxEventType = "ibmelementvideoPlayed";
+googleToUBXVideoPlayedEvent.ubxEventType = "ibmelementVideoPlayed";
 
 var googleToUBXVideoCompletedEvent = JSON.parse(JSON.stringify(googleToUBXVideoEvent));
-googleToUBXVideoCompletedEvent.ubxEventType = "ibmelementvideoCompleted";
+googleToUBXVideoCompletedEvent.ubxEventType = "ibmelementVideoCompleted";
 
 var googleToUBXFormErrorEvent = {};
 googleToUBXFormErrorEvent.ubxEventType = "ibmelementFormError";

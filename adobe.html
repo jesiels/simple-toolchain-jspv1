@@ -1,0 +1,88 @@
+<html>
+
+<head>
+<script src="//assets.adobedtm.com/77b7162b933fd443b2305af147054c14ca537aab/satelliteLib-981e5793bd45dd06d63b8a229cc28dfd3fac1495-staging.js"></script>
+
+
+<!-- Start  Adobe Analytics integration js files -->
+<!-- Adobe analytics JS -->
+
+<script type="text/javascript" src="/adobe/VisitorAPI.js"></script>
+<script type="text/javascript" src="/adobe/AppMeasurement.js"></script>
+<script type="text/javascript" src="/adobe/AAtoUBXEventMapper.js"></script>
+<script type="text/javascript" src="/adobe/UBX.js"></script>
+
+
+
+ </head>
+<body>
+
+
+<script language="JavaScript" type="text/javascript"><!--
+
+
+
+
+
+// jesiel
+    /* You may give each page an identifying name, server, and channel on
+    the next lines. */
+    s.pageName="test jesiel"
+    s.server=""
+    s.channel=""
+    s.pageType=""
+    s.prop1="Jesiel1"
+    s.prop2="Jesiel2"
+    s.prop3="Jesiel3"
+    s.prop4="Jesiel4"
+    s.prop5="Jesiel5"
+    /* Conversion Variables */
+    s.campaign=""
+    s.state=""
+    s.zip=""
+    s.events=""
+    s.products=""
+    s.purchaseID=""
+    s.eVar1=""
+    s.eVar2=""
+    s.eVar3=""
+    s.eVar4=""
+    s.eVar5=""
+    var s_code=s.t();if(s_code)document.write(s_code)//-->
+// jesiel
+
+
+var identifiersMapper = [];
+identifiersMapper.push({"adobeName":"visitorID",
+"ubxName":"aaUserId"});
+identifiersMapper.push({"name":"email",
+"value":"CityCool@email.com"});
+
+
+var attributesMapper = [];
+attributesMapper.push({"adobeName":"prop5", 
+"ubxName":"productID", "type":"string"});
+attributesMapper.push({"adobeName":"prop3", 
+"ubxName":"category", "type":"string"});
+attributesMapper.push({"adobeName":"pageName", 
+"ubxName":"productURL", "type":"string"});
+attributesMapper.push({"adobeName":"productview", 
+"ubxName":"productID", "type":"string"});
+
+  
+adobe_ubx.sendEventFromJSONPayload (s, identifiersMapper, "ibmproductView", attributesMapper);
+</script>
+
+
+
+
+
+Hello World!!! This is my first Page on Bluemix!
+
+
+
+<script type="text/javascript">_satellite.pageBottom();</script>
+
+</body>
+
+</html>

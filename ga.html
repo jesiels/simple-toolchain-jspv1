@@ -1,19 +1,7 @@
 <html>
 <head>
 
-
-<!-- Start  UBX GA integration Javascript files -->
-<script type="text/javascript" src="GAtoUBXEventMapper.js"></script>
-<script type="text/javascript" src="UBX.js"></script>
-<!-- End of UBX GA integration Javascript files -->
-
 <script>
-
-
-// *** THIS IS ONLY TO GET THE EMAIL WHEN OPENING THE PAGE. DO NOT CONSIDER THIS PIECE OF CODE ***
-var person = 'UBXtest@gmail.com';
-person = prompt("Enter the email to be inserted as identifier", 'UBXtest@gmail.com');
-
 
 
 // *** Start of  Google Analytics Tracking snippet ***
@@ -28,27 +16,6 @@ ga('create', 'UA-104218014-1', 'auto');
 // *** Added to enable ecommerce events send to GA 
 ga('require', 'ec');
 // *** End Google Analytics Tracking snippet -->
-
-
-// *** Start Javascript snippet for UBX GA integration -->	
-var identifiersMapper = [];
-identifiersMapper.push({"name":"Email", "value":person}); 
-
-
-ga(function() {
-    var tracker = ga.getByName("t0");
-    var originalSendHitTask = tracker.get("sendHitTask");
-    tracker.set("sendHitTask", function(model) {
-        originalSendHitTask(model);
-        var payLoad = model.get("hitPayload");
-        console.log("model=" + JSON.stringify(model));
-        google_ubx.sendEventFromPayload(payLoad,identifiersMapper);
-        });
-});
-// *** End Javascript snippet for UBX GA integration -->	
-
-
-
 
 
 // *** Scripts to send events -->
@@ -169,7 +136,7 @@ ga("send", "event", "purchase", "purchase", "product purchase");
 
 </head>
 <body>
-<h1> UBX Integration with Google Analytics </h1>
+<h1> Default integration on Google Analytics </h1>
 <hr>
 
 <br>

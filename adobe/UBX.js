@@ -4,7 +4,7 @@ ibm_ubx.eventApi = "/v1/event";
 ibm_ubx.requestType = "POST";
 ibm_ubx.contentType = "application/json";
 ibm_ubx.async = true;
-ibm_ubx.authKey = "XzUDAAAAAACh332fC-f0x2ekcycNQ-YUx7oqnt1C3r3AAbGPdSNqrw:US";
+ibm_ubx.authKey = "dUwDAAAAAABb_tmfNQ3aPG6HYLYA57FN2TIUYPLrW0IMLQxzq21lAA:US";
 
 /**
  * Constructs and sends UBX events to UBX. It can be a single or multiple UBX events.
@@ -72,9 +72,6 @@ ibm_ubx.sendEvents = function(eventList)
  */
 ibm_ubx.postEvent = function(eventJson)
 {
-	// JESIEL added to show the event in the console
-	//console.log(eventJson);
-	
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function ()
     {
@@ -136,10 +133,6 @@ ibm_ubx.buildEvent = function(eventList)
                     else
                         eventJson += ibm_ubx.renderKeyValue(eventObj.attributes);
                 }
-                // Jesiel to add contactConsent to send data to WCA:
-                eventJson += ',';
-                eventJson += '{"name":"ContactConsent", "value" : "email,opt-in"}';
-                
                 eventJson += '],';
                 // end of attributes
 
@@ -173,7 +166,7 @@ ibm_ubx.buildEvent = function(eventList)
         }
 
         eventJson += ']}';
-
+ 		console.log('Jesiel Json code: '+eventJson );
         return eventJson;
     }
     catch (err) {
