@@ -34,8 +34,10 @@ ga('require', 'ec');
 var identifiersMapper = [];
 identifiersMapper.push({"name":"Email", "value":person}); 
 
-var attributesMapper  = [];
-attributesMapper.push({"name":"eventName", "value":"test Event Name"}); 
+//var attributesMapper  = [];
+//attributesMapper.push({"name":"eventName", "value":"test Event Name"}); 
+googleToUBXFormErrorEvent.attributesMapper = [];
+googleToUBXMapper.attributesMapper.push({"name":"eventName", "value":"Test Event Name"});
 
 ga(function() {
     var tracker = ga.getByName("t0");
@@ -44,7 +46,8 @@ ga(function() {
         originalSendHitTask(model);
         var payLoad = model.get("hitPayload");
         console.log("model=" + JSON.stringify(model));
-        google_ubx.sendEventFromPayload(payLoad,identifiersMapper,null,attributesMapper);
+        //google_ubx.sendEventFromPayload(payLoad,identifiersMapper,null,attributesMapper);
+        google_ubx.sendEventFromPayload(payLoad, identifiersMapper, null, googleToUBXMapper);
         });
 });
 // *** End Javascript snippet for UBX GA integration -->	
