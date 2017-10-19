@@ -146,7 +146,7 @@ google_ubx.sendEventFromJSONPayload=function(payloadJson, identifiersMapper, ubx
             console.log("Event type is missing");
             return;
         }
-        console.log("JESIEL Event: " + eventMapper);
+        
         eventMapper = google_ubx.createEventMapper(ubxEventType, identifiersMapper, attributesMapper);
     }
     else {

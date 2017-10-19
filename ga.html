@@ -55,7 +55,7 @@ ga(function() {
         var payLoad = model.get("hitPayload");
         console.log("model=" + JSON.stringify(model));
         console.log("JESIEL" + payLoad)
-        google_ubx.sendEventFromPayload(payLoad,identifiersMapper,,attributesMapper);
+        google_ubx.sendEventFromPayload(payLoad,identifiersMapper,attributesMapper);
         //google_ubx.sendEventFromPayload(payLoad, identifiersMapper, null, googleToUBXMapper);
         });
 });
