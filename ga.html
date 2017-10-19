@@ -31,17 +31,21 @@ ga('require', 'ec');
 
 
 // *** Start Javascript snippet for UBX GA integration -->	
-//var identifiersMapper = [];
-//identifiersMapper.push({"name":"Email", "value":person}); 
+var identifiersMapper = [];
+identifiersMapper.push({"name":"Email", "value":person}); 
 
-var googleToUBXMapper = {};
+var attributesMapper = [];
+attributesMapper.push({"name":"EventName", "value":"Name of the event"}); 
+attributesMapper.push({"name":"description", "value":"Description of the event"}); 
+
+/*var googleToUBXMapper = {};
 //googleToUBXMapper.ubxEventType = "ibmproductView";
 googleToUBXMapper.identifiersMapper = [];
 googleToUBXMapper.identifiersMapper.push({"name":"Email", "value":person});
 googleToUBXMapper.attributesMapper = [];
 googleToUBXMapper.attributesMapper.push({"name":"EventName", "value":"Name of the event"});
 googleToUBXMapper.attributesMapper.push({"name":"description", "value":"Description of the event"}); 
-
+*/
 
 ga(function() {
     var tracker = ga.getByName("t0");
@@ -51,7 +55,7 @@ ga(function() {
         var payLoad = model.get("hitPayload");
         console.log("model=" + JSON.stringify(model));
         console.log("JESIEL" + payLoad)
-        google_ubx.sendEventFromPayload(payLoad,googleToUBXMapper);
+        google_ubx.sendEventFromPayload(payLoad,identifiersMapper,,attributesMapper);
         //google_ubx.sendEventFromPayload(payLoad, identifiersMapper, null, googleToUBXMapper);
         });
 });
