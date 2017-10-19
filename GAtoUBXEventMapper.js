@@ -137,7 +137,7 @@ google_ubx.sendEventFromJSONPayload=function(payloadJson, identifiersMapper, ubx
         console.log("Identifier mapper is missing");
         return;
     }
-
+console.log("EventType Jesiel: " + ubxEventType);
     //console.log("Payload JSON: " + JSON.stringify(payloadJson));
 
     var eventMapper;
