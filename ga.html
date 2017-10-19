@@ -55,7 +55,7 @@ ga(function() {
         var payLoad = model.get("hitPayload");
         console.log("model=" + JSON.stringify(model));
         
-        google_ubx.sendEventFromPayload(payLoad,identifiersMapper);
+        google_ubx.sendEventFromPayload(payLoad,identifiersMapper,null,attributesMapper);
         //google_ubx.sendEventFromPayload(payLoad, identifiersMapper, null, googleToUBXMapper);
         });
 });
