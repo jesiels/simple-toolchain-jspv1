@@ -112,6 +112,7 @@ google_ubx.sendEventFromPayload=function(payload, identifiersMapper, ubxEventTyp
 
     
     console.log("Identifier mapper: " + JSON.stringify(identifiersMapper));
+    console.log("Event Type: " + JSON.stringify(ubxEventType));
 	console.log("Attributes Mapper: " + JSON.stringify(attributesMapper));
     var query = payload;
     var result = {};
