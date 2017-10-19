@@ -2,7 +2,7 @@ var googleToUBXProductViewEvent = {};
 googleToUBXProductViewEvent.ubxEventType = "ibmproductView";
 googleToUBXProductViewEvent.attributesMapper = [];
 googleToUBXProductViewEvent.attributesMapper.push({"googleName":"cid", "ubxName":"interactionId","type":"string"});
-
+googleToUBXProductViewEvent.attributesMapper.push({"googleName":"cid", "ubxName":"interactionId","type":"string"});
 addProductAttributesToMapper(googleToUBXProductViewEvent.attributesMapper);
 
 var googleToUBXAddToCartEvent = {};
@@ -111,9 +111,7 @@ google_ubx.sendEventFromPayload=function(payload, identifiersMapper, ubxEventTyp
     }
 
     
-    console.log("Identifier mapper: " + JSON.stringify(identifiersMapper));
-    console.log("Event Type: " + JSON.stringify(ubxEventType));
-	console.log("Attributes Mapper: " + JSON.stringify(attributesMapper));
+
     var query = payload;
     var result = {};
     query.split("&").forEach(function(part) {
@@ -137,7 +135,6 @@ google_ubx.sendEventFromJSONPayload=function(payloadJson, identifiersMapper, ubx
         console.log("Identifier mapper is missing");
         return;
     }
-console.log("EventType Jesiel: " + ubxEventType);
     //console.log("Payload JSON: " + JSON.stringify(payloadJson));
 
     var eventMapper;
