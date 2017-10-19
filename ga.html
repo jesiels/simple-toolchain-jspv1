@@ -11,7 +11,7 @@
 
 
 // *** THIS IS ONLY TO GET THE EMAIL WHEN OPENING THE PAGE. DO NOT CONSIDER THIS PIECE OF CODE ***
-var person = 'UBXtest@gmail.com';
+var person = 'NEWTEST@gmail.com';
 person = prompt("Enter the email to be inserted as identifier", 'UBXtest@gmail.com');
 
 
@@ -51,7 +51,7 @@ ga(function() {
         var payLoad = model.get("hitPayload");
         console.log("model=" + JSON.stringify(model));
         console.log("JESIEL" + payLoad)
-        google_ubx.sendEventFromPayload(payLoad,identifiersMapper);
+        google_ubx.sendEventFromPayload(payLoad,googleToUBXMapper);
         //google_ubx.sendEventFromPayload(payLoad, identifiersMapper, null, googleToUBXMapper);
         });
 });
