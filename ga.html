@@ -37,7 +37,7 @@ identifiersMapper.push({"name":"Email", "value":person});
 var attributesMapper = [];
 attributesMapper.push({"name":"EventName", "value":"Name of the event"}); 
 attributesMapper.push({"name":"description", "value":"Description of the event"}); 
-
+var eventType;
 /*var googleToUBXMapper = {};
 //googleToUBXMapper.ubxEventType = "ibmproductView";
 googleToUBXMapper.identifiersMapper = [];
@@ -55,7 +55,7 @@ ga(function() {
         var payLoad = model.get("hitPayload");
         console.log("model=" + JSON.stringify(model));
         
-        google_ubx.sendEventFromPayload(payLoad,identifiersMapper);
+        google_ubx.sendEventFromPayload(payLoad,identifiersMapper,eventType,attributesMapper);
         //google_ubx.sendEventFromPayload(payLoad, identifiersMapper, null, googleToUBXMapper);
         });
 });
