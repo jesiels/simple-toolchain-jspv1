@@ -1,7 +1,19 @@
 <html>
 <head>
 
+
+<!-- Start  UBX GA integration Javascript files -->
+<script type="text/javascript" src="GAtoUBXEventMapper.js"></script>
+<script type="text/javascript" src="UBX.js"></script>
+<!-- End of UBX GA integration Javascript files -->
+
 <script>
+
+
+// *** THIS IS ONLY TO GET THE EMAIL WHEN OPENING THE PAGE. DO NOT CONSIDER THIS PIECE OF CODE ***
+var person = 'UBXtest@gmail.com';
+person = prompt("Enter the email to be inserted as identifier", 'UBXtest@gmail.com');
+
 
 
 // *** Start of  Google Analytics Tracking snippet ***
@@ -16,6 +28,37 @@ ga('create', 'UA-104218014-1', 'auto');
 // *** Added to enable ecommerce events send to GA 
 ga('require', 'ec');
 // *** End Google Analytics Tracking snippet -->
+
+
+// *** Start Javascript snippet for UBX GA integration -->	
+//var identifiersMapper = [];
+//identifiersMapper.push({"name":"Email", "value":person}); 
+
+var googleToUBXMapper = {};
+//googleToUBXMapper.ubxEventType = "ibmproductView";
+googleToUBXMapper.identifiersMapper = [];
+googleToUBXMapper.identifiersMapper.push({"name":"Email", "value":person});
+googleToUBXMapper.attributesMapper = [];
+googleToUBXMapper.attributesMapper.push({"name":"EventName", "value":"Name of the event"});
+googleToUBXMapper.attributesMapper.push({"name":"description", "value":"Description of the event"}); 
+
+
+ga(function() {
+    var tracker = ga.getByName("t0");
+    var originalSendHitTask = tracker.get("sendHitTask");
+    tracker.set("sendHitTask", function(model) {
+        originalSendHitTask(model);
+        var payLoad = model.get("hitPayload");
+        console.log("model=" + JSON.stringify(model));
+        console.log("JESIEL" + payLoad)
+        google_ubx.sendEventFromPayload(payLoad,identifiersMapper);
+        //google_ubx.sendEventFromPayload(payLoad, identifiersMapper, null, googleToUBXMapper);
+        });
+});
+// *** End Javascript snippet for UBX GA integration -->	
+
+
+
 
 
 // *** Scripts to send events -->
@@ -136,7 +179,7 @@ ga("send", "event", "purchase", "purchase", "product purchase");
 
 </head>
 <body>
-<h1> Default integration on Google Analytics </h1>
+<h1> UBX Integration with Google Analytics </h1>
 <hr>
 
 <br>

@@ -2,6 +2,7 @@ var googleToUBXProductViewEvent = {};
 googleToUBXProductViewEvent.ubxEventType = "ibmproductView";
 googleToUBXProductViewEvent.attributesMapper = [];
 googleToUBXProductViewEvent.attributesMapper.push({"googleName":"cid", "ubxName":"interactionId","type":"string"});
+
 addProductAttributesToMapper(googleToUBXProductViewEvent.attributesMapper);
 
 var googleToUBXAddToCartEvent = {};
