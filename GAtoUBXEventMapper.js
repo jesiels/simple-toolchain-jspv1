@@ -110,9 +110,9 @@ google_ubx.sendEventFromPayload=function(payload, identifiersMapper, ubxEventTyp
         return;
     }
 
-    console.log("Payload: " + payload);
+    
     console.log("Identifier mapper: " + JSON.stringify(identifiersMapper));
-
+	console.log("Attributes Mapper: " + JSON.stringify(attributesMapper));)
     var query = payload;
     var result = {};
     query.split("&").forEach(function(part) {
