@@ -139,7 +139,9 @@ ibm_ubx.buildEvent = function(eventList)
                 // Jesiel to add contactConsent to send data to WCA:
                 eventJson += ',';
                 eventJson += '{"name":"ContactConsent", "value" : "email,opt-in"}';
-                
+                //Jesiel to add the eventName and description:
+                eventJson += '{"name":"eventName", "value":"Name of the event"}';
+                eventJson += '{"name":"description", "value":"Description of the event"}';
                 eventJson += '],';
                 // end of attributes
 
