@@ -14,9 +14,6 @@
 
 function JesielSendtoUBX() {
 
-var s_code=s.t();
-if(s_code)
-    document.write(s_code);
 var identifiersMapper = [];
 identifiersMapper.push({"name":"Email", "value":"test_jesiel@gmail.com"});
 var attributesMapper = [];
@@ -40,7 +37,7 @@ adobe_ubx.sendEventFromJSONPayload
 <table>
 <tbody>
 <tr>
-<td> <button onclick="JesielSendtoUBX()">Product View</button> </td>
+<td> <button onclick="JesielSendtoUBX()" id="jesiel_event_tag">Product View</button> </td>
 </tr>
 </tbody>
 </table>
