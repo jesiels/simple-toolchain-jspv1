@@ -10,9 +10,20 @@
 <script>
 
 
+//Function to check John's ticket:
+
+function getUrlVars() {
+var vars = {};
+var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+vars[key] = value;
+});
+return vars;
+}
+
 // *** THIS IS ONLY TO GET THE EMAIL WHEN OPENING THE PAGE. DO NOT CONSIDER THIS PIECE OF CODE ***
-var person = 'UBXtest@gmail.com';
-person = prompt("Enter the email to be inserted as identifier", 'UBXtest@gmail.com');
+var person = 'NEWTEST@gmail.com';
+person = getUrlVars()["email"];
+person = prompt("Enter the email to be inserted as identifier", person);
 
 
 
@@ -23,28 +34,23 @@ person = prompt("Enter the email to be inserted as identifier", 'UBXtest@gmail.c
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-
-
 ga('create', 'UA-104218014-1', 'auto');
 
 // *** Added to enable ecommerce events send to GA 
 ga('require', 'ec');
 // *** End Google Analytics Tracking snippet -->
 
-var dimensionValue = 'SOME_DIMENSION_VALUE';
-ga('set', 'dimension1', 'user1');
 
 
 // *** Start Javascript snippet for UBX GA integration -->	
+var ubxEventTypeMapper = "ibmproductView";
 var identifiersMapper = [];
 identifiersMapper.push({"name":"Email", "value":person}); 
-identifiersMapper.push({"name":"ibm_engage_id", "value":'user1'}); 
- 
 
-//var attributesMapper  = [];
-//attributesMapper.push({"name":"eventName", "value":"test Event Name"}); 
-//googleToUBXFormErrorEvent.attributesMapper = [];
-//googleToUBXMapper.attributesMapper.push({"name":"eventName", "value":"Test Event Name"});
+
+var attributesMapperArray = [];
+attributesMapperArray.push
+({"name":"EventName", "value":"Name of the event"});
 
 ga(function() {
     var tracker = ga.getByName("t0");
@@ -53,8 +59,7 @@ ga(function() {
         originalSendHitTask(model);
         var payLoad = model.get("hitPayload");
         console.log("model=" + JSON.stringify(model));
-        console.log("JESIEL" + payLoad)
-        google_ubx.sendEventFromPayload(payLoad,identifiersMapper);
+        google_ubx.sendEventFromPayload(payLoad, identifiersMapper, ubxEventTypeMapper, attributesMapperArray);        
         //google_ubx.sendEventFromPayload(payLoad, identifiersMapper, null, googleToUBXMapper);
         });
 });
@@ -178,12 +183,20 @@ ga("send", "event", "purchase", "purchase", "product purchase");
 											
 
 
+
 </script>
 
 </head>
 <body>
 <h1> UBX Integration with Google Analytics </h1>
 <hr>
+ 
+<script>
+//var first = "test@test.com.br"
+//first = getUrlVars()["email"];
+document.write('<h1> Hi, your email is : ' + person + '</h1>');
+</script>
+
 
 <br>
 <table>
