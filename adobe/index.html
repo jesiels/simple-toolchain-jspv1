@@ -7,6 +7,8 @@
 <!-- Start  UBX GA integration Javascript files -->
 <script type="text/javascript" src="AAtoUBXEventMapper.js"></script>
 <script type="text/javascript" src="UBX.js"></script>
+<script type="text/javascript" src="VisitorAPI.js"></script>
+<script type="text/javascript" src="AppMeasurement.js"></script>
 <!-- End of UBX GA integration Javascript files -->
 
 <script>
@@ -14,15 +16,29 @@
 
 function JesielSendtoUBX() {
 
+var s_code=s.t();
+if(s_code)
+    document.write(s_code);
+    
 var identifiersMapper = [];
-identifiersMapper.push({"name":"Email", "value":"test_jesiel@gmail.com"});
+identifiersMapper.push({"adobeName":"visitorID",
+"ubxName":"aaUserId"});
+identifiersMapper.push({"name":"email",
+"value":"CityCool@email.com"});
+
 var attributesMapper = [];
-attributesMapper.push({"name":"productName", "value":s.eVar1});
-attributesMapper.push({"name":"productID", "value":s.prop1});
+attributesMapper.push({"adobeName":"prop10", 
+"ubxName":"productID", "type":"string"});
+attributesMapper.push({"adobeName":"prop63", 
+"ubxName":"category", "type":"string"});
+attributesMapper.push({"adobeName":"pageURL", 
+"ubxName":"productURL", "type":"string"});
+
+attributesMapper.push({"name":"productName", 
+"value":"SleekFit", "type":"string"});
+
 adobe_ubx.sendEventFromJSONPayload
-(s, identifiersMapper, 
-"ibmproductView", attributesMapper);
-	
+(s, identifiersMapper, "ibmproductView", attributesMapper);
 
 }
 </script>
@@ -39,6 +55,10 @@ adobe_ubx.sendEventFromJSONPayload
 <tr>
 <td> <a href="test.doc" id="jesiel_event_tag"> Product View </a> </td>
 </tr>
+<tr>
+<td> <button onclick="JesielSendtoUBX()">View this product </button> </td>
+</tr>
+
 </tbody>
 </table>
 
