@@ -117,7 +117,8 @@ ibm_ubx.buildEvent = function(eventList)
                 if (!eventChannel)
                     eventChannel = "Web";
                 eventJson += ibm_ubx.renderLabelValue("channel", eventChannel);
-                eventJson += ibm_ubx.renderLabelValue("timestamp", new Date().toJSON());
+                //commented to generate UBX timestamp
+                //eventJson += ibm_ubx.renderLabelValue("timestamp", new Date().toJSON());
 
                 // start of attributes
                 eventJson += '"attributes":[';
