@@ -4,7 +4,7 @@ ibm_ubx.eventApi = "/v1/event";
 ibm_ubx.requestType = "POST";
 ibm_ubx.contentType = "application/json";
 ibm_ubx.async = true;
-ibm_ubx.authKey = "G7UDAAAAAADJUrKBgS2G9Z_5XWRdF9ZQSJTk6FTvZ1HplZDT3n-sSQ:US";
+ibm_ubx.authKey = "nb8DAAAAAACj1OWqQJWRRpDi5itITCogALtzfFav0hY-pUNODJ62RQ:US";
 
 /**
  * Constructs and sends UBX events to UBX. It can be a single or multiple UBX events.
