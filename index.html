@@ -35,12 +35,14 @@ var dimensionValue = 'SOME_DIMENSION_VALUE';
 ga('set', 'dimension1', 'user1');
 
 
+//get the name (without @)
+var n = person.indexOf("@");
+var name_new_column = person.substr(1, n);
+
 // *** Start Javascript snippet for UBX GA integration -->	
 var identifiersMapper = [];
 identifiersMapper.push({"name":"Email", "value":person}); 
-identifiersMapper.push({"name":"ibm_engage_id", "value":'user1'}); 
-identifiersMapper.push({"name":"newColumn", "value":'newCol_user1'}); 
-identifiersMapper.push({"name":"new_column", "value":'newCol_user2'}); 
+identifiersMapper.push({"name":"new_column", "value":name_new_column}); 
 
 
  
